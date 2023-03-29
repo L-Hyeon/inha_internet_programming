@@ -13,7 +13,7 @@
 <section class="login-panel">
 	<div class="logo">Inha<br />Internet Programming</div>
 	<form on:submit={(e) => e.preventDefault()}>
-		<Input bind:value={userId} placeholder="아이디" />
+		<Input bind:value={userId} type="email" placeholder="이메일" />
 		<Input type="password" bind:value={userPw} placeholder="비밀번호" />
 		<Button bgColor="#6667ab" border="none" textColor="white" onClick={login}
 			>로그인</Button
