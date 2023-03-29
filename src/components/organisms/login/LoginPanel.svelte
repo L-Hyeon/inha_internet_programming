@@ -24,6 +24,8 @@
 <style>
 	.login-panel {
 		width: 600px;
+	}
+	form {
 		display: flex;
 		flex-direction: column;
 		gap: 20px;
