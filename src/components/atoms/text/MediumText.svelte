@@ -9,7 +9,6 @@
 
 <style>
 	div {
-		font-family: "TheJamsil5Bold";
 		text-align: center;
 		font-size: 16px;
 	}

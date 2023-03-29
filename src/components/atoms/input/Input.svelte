@@ -1,5 +1,6 @@
 <script lang="ts">
-	export let width: string = "300px";
+	export let name: string = "";
+	export let width: string = "600px";
 	export let height: string = "50px";
 	export let value: string;
 	export let type: string = "text";
@@ -14,6 +15,7 @@
 </script>
 
 <input
+	{name}
 	use:typeAction
 	bind:value
 	style="width:{width};height:{height};background-color:{bgColor};color:{textColor};border:{border}"

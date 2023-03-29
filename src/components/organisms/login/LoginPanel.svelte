@@ -21,7 +21,7 @@
 
 <style>
 	.login-panel {
-		width: 300px;
+		width: 600px;
 		display: flex;
 		flex-direction: column;
 		gap: 20px;

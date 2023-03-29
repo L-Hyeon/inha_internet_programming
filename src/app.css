@@ -1,6 +1,6 @@
 @font-face {
-  font-family: 'TheJamsil5Bold';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil5Bold.woff2') format('woff2');
+  font-family: 'KIMM_Bold';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/KIMM_Bold.woff2') format('woff2');
   font-weight: 700;
   font-style: normal;
 }
@@ -13,7 +13,7 @@
 }
 
 #root {
-  font-family: "TheJamsil5Bold";
+  font-family: "KIMM_Bold";
   margin: 0 auto;
   text-align: center;
   line-height: 1.5;
@@ -116,6 +116,10 @@ video {
   vertical-align: -webkit-baseline-middle;
   vertical-align: -moz-middle-with-baseline;
   box-sizing: border-box;
+}
+
+div, label {
+  font-family: "KIMM_Bold";
 }
 
 a {

@@ -1,6 +1,6 @@
 <script lang="ts">
 	export let onClick: () => void;
-	export let width: string = "300px";
+	export let width: string = "600px";
 	export let height: string = "50px";
 	export let bgColor: string = "#fff";
 	export let textColor: string = "black";
