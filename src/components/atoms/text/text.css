@@ -1,0 +1,15 @@
+.text-type-1 {
+  color: var(--primary);
+}
+
+.text-type-2 {
+  color: var(--secondary);
+}
+
+.text-type-3 {
+  color: var(--tertiary);
+}
+
+.text-type-4 {
+  color: var(--quaternary);
+}
