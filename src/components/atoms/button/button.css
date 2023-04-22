@@ -1,0 +1,16 @@
+.button-type-1 {
+  background-color: var(--white);
+  color: var(--primary);
+}
+.button-type-2 {
+  background-color: var(--primary);
+  color: var(--white);
+}
+.button-type-3 {
+  background-color: var(--white);
+  color: var(--secondary);
+}
+.button-type-4 {
+  background-color: var(--secondary);
+  color: var(--white);
+}

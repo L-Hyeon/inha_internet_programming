@@ -17,7 +17,7 @@
 	};
 </script>
 
-<section>
+<article>
 	<div>가입하기</div>
 	<form
 		on:submit={(e) => {
@@ -32,20 +32,18 @@
 			type="password"
 			bind:value={pwConfirm}
 		/>
-		<Button bgColor="#6667ab" border="none" textColor="white" onClick={register}
-			>가입하기</Button
-		>
+		<Button type={2} onClick={register}>가입하기</Button>
 	</form>
-</section>
+</article>
 
 <style>
-	section {
-		margin: 10% auto;
+	article {
+		margin: 10vh auto;
 		width: 600px;
 	}
 	div {
 		font-family: "HS-Regular";
-		color: #6667ab;
+		color: var(--primary);
 		font-size: 50px;
 		width: 100%;
 		text-align: center;
@@ -54,6 +52,6 @@
 	form {
 		display: flex;
 		flex-direction: column;
-		gap: 20px;
+		gap: 40px;
 	}
 </style>

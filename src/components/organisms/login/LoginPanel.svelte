@@ -10,19 +10,18 @@
 	};
 </script>
 
-<section class="login-panel">
+<article class="login-panel">
 	<div class="logo">Inha<br />Internet Programming</div>
 	<form on:submit={(e) => e.preventDefault()}>
 		<Input bind:value={userId} type="email" placeholder="이메일" />
 		<Input type="password" bind:value={userPw} placeholder="비밀번호" />
-		<Button bgColor="#6667ab" border="none" textColor="white" onClick={login}
-			>로그인</Button
-		>
+		<Button type={2} onClick={login}>로그인</Button>
 	</form>
-</section>
+</article>
 
 <style>
 	.login-panel {
+		margin: 10vh auto;
 		width: 600px;
 	}
 	form {
@@ -32,7 +31,7 @@
 	}
 	.logo {
 		font-family: "HS-Regular";
-		color: #6667ab;
+		color: var(--primary);
 		font-size: 50px;
 		width: 100%;
 		height: 200px;

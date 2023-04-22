@@ -9,6 +9,6 @@
 		text-align: center;
 		line-height: 50px;
 		color: white;
-		background-color: #6667ab;
+		background-color: var(--primary);
 	}
 </style>

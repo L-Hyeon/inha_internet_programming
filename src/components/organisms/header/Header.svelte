@@ -12,6 +12,6 @@
 	header {
 		display: flex;
 		justify-content: space-between;
-		border-bottom: 1px solid #6667abcc;
+		border-bottom: 1px solid var(--primary);
 	}
 </style>

@@ -1,7 +1,7 @@
 <script lang="ts">
+	import { goto } from "$app/navigation";
 	import { isLoggedIn, nickname } from "../../../stores/UserStore";
 	import Button from "../../atoms/button/Button.svelte";
-	import MediumText from "../../atoms/text/MediumText.svelte";
 
 	const logout: () => void = () => {
 		isLoggedIn.set(false);
@@ -10,10 +10,24 @@
 
 <div>
 	{#if $isLoggedIn}
-		<Button onClick={logout}>{$nickname}</Button>
+		<Button onClick={logout} type={2}>{$nickname}</Button>
 	{:else}
-		<a href="/login"><MediumText>로그인</MediumText></a>
-		<a href="/register"><MediumText>회원가입</MediumText></a>
+		<Button
+			width="100px"
+			height="49px"
+			onClick={() => {
+				goto("/login");
+			}}
+			type={1}>로그인</Button
+		>
+		<Button
+			width="100px"
+			height="49px"
+			onClick={() => {
+				goto("/register");
+			}}
+			type={1}>회원가입</Button
+		>
 	{/if}
 </div>
 
