@@ -1,38 +1,40 @@
 <script lang="ts">
 	import { onMount } from "svelte";
 	import type { ItemType } from "../../../libs/CusomTypes";
-  import Loading from "../../molecules/common/Loading.svelte";
-  import Item from "../../molecules/item/Item.svelte";
-  import Hooks from "../../../libs/Hooks";
-  import Text from "../../atoms/text/Text.svelte";
-  import ListFilter from "../filter/ListFilter.svelte";
+	import Loading from "../../molecules/common/Loading.svelte";
+	import Item from "../../molecules/item/Item.svelte";
+	import Hooks from "../../../libs/Hooks";
+	import Text from "../../atoms/text/Text.svelte";
+	import ListFilter from "../filter/ListFilter.svelte";
 
-  export let data: {list: []};
+	export let data: { list: [] };
 
-  let listElement: Element;
+	let listElement: Element;
 	let loading: boolean = false;
 	let list: ItemType[] = data.list;
-  let page = 0;
+	let page = 0;
 
-  const getItems = (page: number) => {
-    loading = true;
-    Hooks.getItems(page).then(res => {
-      list = [...list, ...res.data.products];
-      loading = false;
-    })
-  }
+	const getItems = (page: number) => {
+		loading = true;
+		Hooks.getItems(page).then((res) => {
+			list = [...list, ...res.data.products];
+			loading = false;
+		});
+	};
 
 	onMount(() => {
-    if (listElement) {
-      listElement.addEventListener("scroll", () => {
-        console.log(listElement.scrollTop + listElement.clientHeight >= listElement.scrollHeight)
-        if (listElement.scrollTop + listElement.clientHeight >= listElement.scrollHeight) {
-          page += 1;
-          getItems(page);
-        }
-      })
-    }
-  });
+		if (listElement) {
+			listElement.addEventListener("scroll", () => {
+				if (
+					listElement.scrollTop + listElement.clientHeight >=
+					listElement.scrollHeight
+				) {
+					page += 1;
+					getItems(page);
+				}
+			});
+		}
+	});
 </script>
 
 <section>
@@ -54,7 +56,7 @@
 	section {
 		width: calc(64vw + 20px);
 		margin: 0 auto;
-		padding-bottom: 4vh;
+		padding: 2vh 0 2vh 0;
 	}
 	.filters {
 		height: 4vh;

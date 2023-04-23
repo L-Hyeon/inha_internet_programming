@@ -4,5 +4,9 @@ img {
 
 .img-size-1 {
   width: 20vw;
-  height: 200px;
+  height: 16vw;
+}
+.img-size-2 {
+  width: 30vw;
+  height: 30vw;
 }

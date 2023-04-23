@@ -1,9 +1,9 @@
 <script>
-	import Item from "../../../components/molecules/item/Item.svelte";
+	import ItemDetail from "../../../components/organisms/detail/ItemDetail.svelte";
 
 	export let data;
 </script>
 
 <article>
-	<h3>{data}</h3>
+	<ItemDetail item={data.item} />
 </article>

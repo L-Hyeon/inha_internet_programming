@@ -16,23 +16,26 @@
 
 <a href={`item/${item.id}`}>
 	<li class="wrapper">
-		<div class="img" />
-		<!-- <Image src={item.thumbnail} alt={item.title} size={1} /> -->
-		<Text type={1} fontSize="large">
-			{item.title}
-		</Text>
-		<Text>
-			{item.price}
-		</Text>
-		<Text>
-			{item.category}
-		</Text>
-		<Text>
-			{item.brand}
-		</Text>
-		<Text>
-			{item.rating}
-		</Text>
+		<Image src={item.thumbnail} alt={item.title} size={1} />
+		<div class="info">
+			<div class="hashtags">
+				<Text type={3} fontSize="small">#{item.category}</Text>
+				<Text type={3} fontSize="small">
+					#{item.brand}
+				</Text>
+			</div>
+			<Text type={1} fontSize="large">
+				{item.title}
+			</Text>
+			<div class="row">
+				<Text type={3}>
+					★{item.rating}
+				</Text>
+				<Text type={1}>
+					${item.price.toLocaleString()}
+				</Text>
+			</div>
+		</div>
 	</li></a
 >
 
@@ -40,7 +43,7 @@
 	.wrapper {
 		list-style: none;
 		width: 20vw;
-		height: 500px;
+		height: 21vw;
 		display: flex;
 		flex-direction: column;
 		gap: 10px;
@@ -48,9 +51,21 @@
 		overflow: hidden;
 		border: 1px solid var(--primary);
 	}
-	.img {
-		width: 20vw;
-		height: 300px;
-		background-color: var(--secondary);
+	.info {
+		height: calc(5vw - 20px);
+		padding: 0 10px 0 10px;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: start;
+	}
+	.hashtags {
+		display: flex;
+		gap: 10px;
+	}
+	.row {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
 	}
 </style>
