@@ -19,12 +19,14 @@
 		<Image src={item.thumbnail} alt={item.title} size={1} />
 		<div class="info">
 			<div class="hashtags">
-				<Text type={3} fontSize="small">#{item.category}</Text>
-				<Text type={3} fontSize="small">
+				<Text type={3} width="8vw" wrap={false} fontSize="small"
+					>#{item.category}</Text
+				>
+				<Text type={3} width="8vw" wrap={false} fontSize="small" align={"left"}>
 					#{item.brand}
 				</Text>
 			</div>
-			<Text type={1} fontSize="large">
+			<Text type={1} width="18vw" fontSize="large" align={"left"}>
 				{item.title}
 			</Text>
 			<div class="row">
@@ -43,20 +45,21 @@
 	.wrapper {
 		list-style: none;
 		width: 20vw;
-		height: 21vw;
+		height: 26vw;
 		display: flex;
 		flex-direction: column;
+		justify-content: space-between;
 		gap: 10px;
 		border-radius: 10px;
 		overflow: hidden;
 		border: 1px solid var(--primary);
 	}
 	.info {
-		height: calc(5vw - 20px);
-		padding: 0 10px 0 10px;
+		padding: 0 10px 10px 10px;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
+		gap: 10px;
 		align-items: start;
 	}
 	.hashtags {

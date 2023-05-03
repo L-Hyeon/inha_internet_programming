@@ -9,26 +9,22 @@
 </script>
 
 <div>
-	{#if $isLoggedIn}
-		<Button onClick={logout} type={2}>{$nickname}</Button>
-	{:else}
-		<Button
-			width="100px"
-			height="49px"
-			onClick={() => {
-				goto("/login");
-			}}
-			type={1}>로그인</Button
-		>
-		<Button
-			width="100px"
-			height="49px"
-			onClick={() => {
-				goto("/register");
-			}}
-			type={1}>회원가입</Button
-		>
-	{/if}
+	<Button
+		width="100px"
+		height="49px"
+		onClick={() => {
+			goto($isLoggedIn ? "/login" : "/profile");
+		}}
+		type={1}>{$isLoggedIn ? "로그인" : $nickname}</Button
+	>
+	<Button
+		width="100px"
+		height="49px"
+		onClick={() => {
+			$isLoggedIn ? goto("/register") : logout();
+		}}
+		type={1}>{$isLoggedIn ? "회원가입" : "로그아웃"}</Button
+	>
 </div>
 
 <style>

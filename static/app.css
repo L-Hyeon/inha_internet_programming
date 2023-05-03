@@ -117,6 +117,7 @@ video {
   vertical-align: -moz-middle-with-baseline;
   box-sizing: border-box;
   font-family: "KIMM_Bold";
+  text-overflow: ellipsis;
 }
 
 a {

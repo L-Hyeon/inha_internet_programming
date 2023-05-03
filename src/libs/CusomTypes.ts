@@ -21,3 +21,13 @@ export interface ItemDetailType {
 	stock: number;
 	images: string[];
 }
+
+export interface Subject {
+	id: number;
+	title: string;
+	day: number;
+	startTime: number;
+	endTime: number;
+	professor: number;
+	place: string;
+}
