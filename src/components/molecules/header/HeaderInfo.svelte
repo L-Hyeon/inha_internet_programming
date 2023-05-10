@@ -5,6 +5,7 @@
 
 	const logout: () => void = () => {
 		isLoggedIn.set(false);
+		goto("/");
 	};
 </script>
 
@@ -13,17 +14,17 @@
 		width="100px"
 		height="49px"
 		onClick={() => {
-			goto($isLoggedIn ? "/login" : "/profile");
+			goto(!$isLoggedIn ? "/login" : "/profile");
 		}}
-		type={1}>{$isLoggedIn ? "로그인" : $nickname}</Button
+		type={1}>{!$isLoggedIn ? "로그인" : $nickname}</Button
 	>
 	<Button
 		width="100px"
 		height="49px"
 		onClick={() => {
-			$isLoggedIn ? goto("/register") : logout();
+			!$isLoggedIn ? goto("/register") : logout();
 		}}
-		type={1}>{$isLoggedIn ? "회원가입" : "로그아웃"}</Button
+		type={1}>{!$isLoggedIn ? "회원가입" : "로그아웃"}</Button
 	>
 </div>
 
