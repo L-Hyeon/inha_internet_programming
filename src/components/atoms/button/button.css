@@ -1,16 +1,46 @@
+button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .button-type-1 {
   background-color: var(--white);
   color: var(--primary);
+  transition: all 0.3s;
+}
+.button-type-1:hover{
+  background-color: var(--primary);
+  color: var(--white);
+  transition: all 0.3s;
 }
 .button-type-2 {
   background-color: var(--primary);
   color: var(--white);
+  transition: all 0.3s;
+}
+.button-type-2:hover{
+  background-color: var(--white);
+  color: var(--primary);
+  transition: all 0.3s;
 }
 .button-type-3 {
   background-color: var(--white);
   color: var(--secondary);
+  transition: all 0.3s;
+}
+.button-type-3:hover {
+  background-color: var(--secondary);
+  color: var(--white);
+  transition: all 0.3s;
 }
 .button-type-4 {
   background-color: var(--secondary);
   color: var(--white);
+  transition: all 0.3s;
+}
+.button-type-4:hover{
+  background-color: var(--white);
+  color: var(--secondary);
+  transition: all 0.3s;
 }
