@@ -31,3 +31,15 @@ export interface Subject {
 	professor: number;
 	place: string;
 }
+
+export interface SubjectDetail {
+	id: number;
+	title: string;
+	day: number;
+	startTime: number;
+	endTime: number;
+	professor: number;
+	place: string;
+	createTime: string;
+	syllabus: string;
+}

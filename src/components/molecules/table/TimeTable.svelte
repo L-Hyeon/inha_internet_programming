@@ -6,7 +6,7 @@
 	export let colorList: number[] = [];
 	export let table: Subject[] = [];
 	let timeTable: number[][] = [];
-	let lastTime = 0;
+	let lastTime = 10;
 
 	onMount(() => {
 		table.forEach((e) => {

@@ -4,6 +4,8 @@
 	import Text from "../../atoms/text/Text.svelte";
 
 	export let item: import("../../../libs/CusomTypes").ItemDetailType;
+
+	const addSubjectToTable = () => {};
 </script>
 
 <section>
@@ -35,10 +37,9 @@
 					</Text>
 					<Text fontSize="large">♥0</Text>
 				</div>
-				<div class="row">
-					<Button type={2} width="200px" onClick={() => {}}>찜하기</Button>
-					<Button type={2} width="200px" onClick={() => {}}>평가하기</Button>
-				</div>
+				<Button type={2} width="200px" onClick={addSubjectToTable}
+					>시간표에 추가하기</Button
+				>
 			</div>
 		</div>
 	</div>
