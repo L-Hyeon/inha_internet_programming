@@ -1,7 +1,7 @@
-import Hooks from "../libs/Hooks";
+import Hooks from "../../libs/Hooks";
 
 export function load() {
-	return Hooks.getWords(0)
+	return Hooks.getStudies(0)
 		.then((res) => {
 			return { list: res.data };
 		})

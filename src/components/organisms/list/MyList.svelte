@@ -2,9 +2,9 @@
 	import { onMount } from "svelte";
 	import Loading from "../../molecules/common/Loading.svelte";
 	import Hooks from "../../../libs/Hooks";
-	import Text from "../../atoms/text/Text.svelte";
 	import type { Word } from "../../../libs/CusomTypes";
 	import Item from "../../molecules/item/Item.svelte";
+	import Text from "../../atoms/text/Text.svelte";
 
 	export let data: { list: [] };
 
@@ -13,9 +13,9 @@
 	let list: Word[] = data.list;
 	let page = 0;
 
-	const getWords = (page: number) => {
+	const getStudies = (page: number) => {
 		loading = true;
-		Hooks.getWords(page).then((res) => {
+		Hooks.getStudies(page).then((res) => {
 			list = [...list, ...res.data];
 			loading = false;
 		});
@@ -29,7 +29,7 @@
 					listElement.scrollHeight
 				) {
 					page += 1;
-					getWords(page);
+					getStudies(page);
 				}
 			});
 		}
@@ -44,6 +44,9 @@
 			{/each}
 			{#if loading}
 				<Loading />
+			{/if}
+			{#if list.length === 0}
+				<Text type={1} fontSize="large">공부한 단어가 없어요...</Text>
 			{/if}
 		</div>
 	</ul>

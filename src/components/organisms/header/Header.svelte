@@ -10,7 +10,8 @@
 
 <style>
 	header {
-		width: 100vw;
+		width: 100%;
+		margin-bottom: 2vh;
 		display: flex;
 		justify-content: space-between;
 		border-bottom: 1px solid var(--primary);

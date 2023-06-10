@@ -1,7 +1,9 @@
-<script>
-	import CurTimeTable from "../../components/organisms/profile/CurTimeTable.svelte";
+<script lang="ts">
+	import MyList from "../../components/organisms/list/MyList.svelte";
+
+	export let data: { list: [] };
 </script>
 
 <article>
-	<CurTimeTable />
+	<MyList {data} />
 </article>

@@ -2,20 +2,20 @@
 	import { onMount } from "svelte";
 	import Loading from "../../molecules/common/Loading.svelte";
 	import Hooks from "../../../libs/Hooks";
+	import type { Notice } from "../../../libs/CusomTypes";
 	import Text from "../../atoms/text/Text.svelte";
-	import type { Word } from "../../../libs/CusomTypes";
-	import Item from "../../molecules/item/Item.svelte";
+	import BoardItem from "../../molecules/item/BoardItem.svelte";
 
 	export let data: { list: [] };
 
 	let listElement: Element;
 	let loading: boolean = false;
-	let list: Word[] = data.list;
+	let list: Notice[] = data.list;
 	let page = 0;
 
-	const getWords = (page: number) => {
+	const getNotices = (page: number) => {
 		loading = true;
-		Hooks.getWords(page).then((res) => {
+		Hooks.getNotices(page).then((res) => {
 			list = [...list, ...res.data];
 			loading = false;
 		});
@@ -29,7 +29,7 @@
 					listElement.scrollHeight
 				) {
 					page += 1;
-					getWords(page);
+					getNotices(page);
 				}
 			});
 		}
@@ -39,14 +39,18 @@
 <section>
 	<ul bind:this={listElement}>
 		<div class="wrapper">
-			{#each list as word}
-				<Item {word} />
+			{#each list as data}
+				<BoardItem {data} showModal={() => {}} />
 			{/each}
 			{#if loading}
 				<Loading />
 			{/if}
+			{#if list.length === 0}
+				<Text type={1} fontSize="large">게시글이 없어용...</Text>
+			{/if}
 		</div>
 	</ul>
+	<div class="modal" />
 </section>
 
 <style>

@@ -1,9 +1,9 @@
-<script>
+<script lang="ts">
 	import ItemDetail from "../../../components/organisms/detail/ItemDetail.svelte";
 
-	export let data;
+	export let data: import("../../../libs/CusomTypes").Word;
 </script>
 
 <article>
-	<ItemDetail item={data.item} />
+	<ItemDetail word={data} />
 </article>

@@ -1,47 +1,71 @@
 <script lang="ts">
-	import Image from "../../atoms/Image/Image.svelte";
 	import Button from "../../atoms/button/Button.svelte";
 	import Text from "../../atoms/text/Text.svelte";
+	import { onMount } from "svelte";
+	import Hooks from "../../../libs/Hooks";
+	import { isLoggedIn, studies } from "../../../stores/UserStore";
+	import { goto } from "$app/navigation";
 
-	export let item: import("../../../libs/CusomTypes").ItemDetailType;
+	export let word: any;
+	let color: number;
+	let bgColor: string[] = [
+		"bg-primary",
+		"bg-secondary",
+		"bg-tertiary",
+		"bg-quaternary",
+	];
 
-	const addSubjectToTable = () => {};
+	const study = () => {
+		if (!$isLoggedIn) {
+			goto("/login");
+		}
+		Hooks.addStudy(word.item.id)
+			.then((res) => {
+				studies.set([...$studies, word.item.id]);
+			})
+			.catch((e) => {
+				alert(e);
+			});
+	};
+	const deleteStudy = () => {
+		Hooks.deleteStudy(word.item.id).then((res) => {
+			studies.set($studies.splice($studies.indexOf(word.item.id), 1));
+			goto("/");
+		});
+	};
+
+	onMount(() => {
+		color = (word.item.word.length % 4) + 1;
+		console.log($studies);
+	});
 </script>
 
 <section>
-	<Image src={item.thumbnail} alt={item.title} size={2} />
+	<div class="word {bgColor[color - 1]}">
+		<Text type={word.item.word.length % 2 ? 6 : 5} fontSize="title">
+			{word.item.word}
+		</Text>
+	</div>
 	<div class="info">
-		<div class="hasGap">
-			<Text fontSize="title" align="left">
-				{item.title}
-			</Text>
-			<div class="hashtags">
-				<Text type={1} fontSize="large">#{item.category}</Text>
-				<Text type={1} fontSize="large">
-					#{item.brand}
-				</Text>
-			</div>
-			<Text type={2} fontSize="title">
-				${item.price}
-			</Text>
-		</div>
-
-		<div class="hasGap">
-			<Text align="left" type={1}>
-				{item.description}
-			</Text>
-			<div class="row widthFull">
-				<div class="row">
-					<Text fontSize="large">
-						★{item.rating}
-					</Text>
-					<Text fontSize="large">♥0</Text>
-				</div>
-				<Button type={2} width="200px" onClick={addSubjectToTable}
-					>시간표에 추가하기</Button
+		<dl>
+			<dt><Text type={color} align="start" fontSize="large">KR</Text></dt>
+			<dd>
+				<Text type={color} align="start" fontSize="medium">{word.item.kor}</Text
 				>
-			</div>
-		</div>
+			</dd>
+			<dt><Text type={color} align="start" fontSize="large">EN</Text></dt>
+			<dd>
+				<Text type={color} align="start" fontSize="medium">{word.item.eng}</Text
+				>
+			</dd>
+		</dl>
+		<Button
+			type={$studies.includes(word.item.id) ? 5 : 6}
+			onClick={$studies.includes(word.item.id) ? deleteStudy : study}
+			width="20vw"
+		>
+			{$studies.includes(word.item.id) ? "Studied!" : "Study!"}
+		</Button>
 	</div>
 </section>
 
@@ -54,30 +78,39 @@
 		justify-content: space-between;
 		border-bottom: 1px solid var(--primary);
 	}
+	.word {
+		width: 30vw;
+		height: 30vw;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
 	.info {
 		width: 32vw;
 		display: flex;
 		flex-direction: column;
-		justify-content: space-between;
-		align-items: start;
+		justify-content: space-around;
+		align-items: center;
 	}
-	.hasGap {
-		display: flex;
-		flex-direction: column;
-		gap: 1vw;
-		align-items: start;
+	dd {
+		padding-left: 2vw;
+		margin-bottom: 2vh;
 	}
-	.hashtags {
-		display: flex;
-		gap: 10px;
+
+	.bg-primary {
+		background-color: var(--primary);
+		border-color: var(--primary);
 	}
-	.row {
-		display: flex;
-		justify-content: space-between;
-		align-items: baseline;
-		gap: 10px;
+	.bg-secondary {
+		background-color: var(--secondary);
+		border-color: var(--secondary);
 	}
-	.widthFull {
-		width: 100%;
+	.bg-tertiary {
+		background-color: var(--tertiary);
+		border-color: var(--tertiary);
+	}
+	.bg-quaternary {
+		background-color: var(--quaternary);
+		border-color: var(--quaternary);
 	}
 </style>

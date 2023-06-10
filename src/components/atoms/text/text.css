@@ -1,15 +1,23 @@
 .text-type-1 {
-  color: var(--primary);
+	color: var(--primary);
 }
 
 .text-type-2 {
-  color: var(--secondary);
+	color: var(--secondary);
 }
 
 .text-type-3 {
-  color: var(--tertiary);
+	color: var(--tertiary);
 }
 
 .text-type-4 {
-  color: var(--quaternary);
+	color: var(--quaternary);
+}
+
+.text-type-5 {
+	color: #ffffff;
+}
+
+.text-type-6 {
+	color: #000000;
 }

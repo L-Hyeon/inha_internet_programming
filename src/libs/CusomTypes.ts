@@ -1,45 +1,26 @@
-export interface ItemType {
+export interface Word {
 	id: number;
-	title: string;
-	thumbnail: string;
-	price: number;
-	category: string;
-	brand: string;
-	rating: number;
+	word: string;
+	kor: string;
+	eng: string;
 }
 
-export interface ItemDetailType {
+export interface User {
 	id: number;
-	title: string;
-	thumbnail: string;
-	price: number;
-	category: string;
-	brand: string;
-	rating: number;
-	description: string;
-	discountPercentage: number;
-	stock: number;
-	images: string[];
+	uid: string;
+	isAdmin: boolean;
 }
 
-export interface Subject {
+export interface Study {
 	id: number;
-	title: string;
-	day: number;
-	startTime: number;
-	endTime: number;
-	professor: number;
-	place: string;
+	user_id: number;
+	word_id: number;
 }
 
-export interface SubjectDetail {
+export interface Notice {
 	id: number;
 	title: string;
-	day: number;
-	startTime: number;
-	endTime: number;
-	professor: number;
-	place: string;
-	createTime: string;
-	syllabus: string;
+	content: string;
+	createtime: string;
+	user_id: number;
 }

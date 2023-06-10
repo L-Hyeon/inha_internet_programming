@@ -1,4 +1,7 @@
 <script lang="ts">
+	import { goto } from "$app/navigation";
+	import Hooks from "../../../libs/Hooks";
+	import { isLoggedIn } from "../../../stores/UserStore";
 	import Button from "../../atoms/button/Button.svelte";
 	import Input from "../../atoms/input/Input.svelte";
 
@@ -6,14 +9,18 @@
 	let userPw: string;
 
 	const login = () => {
-		console.log(userId, userPw);
+		Hooks.login(userId, userPw).then((res) => {
+			console.log($isLoggedIn);
+			Hooks.getAllStudies();
+			goto("/");
+		});
 	};
 </script>
 
 <article class="login-panel">
 	<div class="logo">Inha<br />Internet Programming</div>
 	<form on:submit={(e) => e.preventDefault()}>
-		<Input bind:value={userId} type="email" placeholder="이메일" />
+		<Input bind:value={userId} placeholder="계정" />
 		<Input type="password" bind:value={userPw} placeholder="비밀번호" />
 		<Button type={2} onClick={login}>로그인</Button>
 	</form>

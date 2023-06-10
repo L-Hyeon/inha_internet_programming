@@ -24,7 +24,7 @@
 			e.preventDefault();
 		}}
 	>
-		<LabeledInput label="이메일" type="email" bind:value={email} />
+		<LabeledInput label="계정" bind:value={email} />
 		<LabeledInput label="닉네임" bind:value={nickname} />
 		<LabeledInput label="비밀번호" type="password" bind:value={pw} />
 		<LabeledInput

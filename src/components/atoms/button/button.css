@@ -1,46 +1,67 @@
 button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .button-type-1 {
-  background-color: var(--white);
-  color: var(--primary);
-  transition: all 0.3s;
+	background-color: var(--white);
+	color: var(--primary);
+	transition: all 0.3s;
 }
-.button-type-1:hover{
-  background-color: var(--primary);
-  color: var(--white);
-  transition: all 0.3s;
+.button-type-1:hover {
+	background-color: var(--primary);
+	color: var(--white);
+	transition: all 0.3s;
 }
 .button-type-2 {
-  background-color: var(--primary);
-  color: var(--white);
-  transition: all 0.3s;
+	background-color: var(--primary);
+	color: var(--white);
+	transition: all 0.3s;
 }
-.button-type-2:hover{
-  background-color: var(--white);
-  color: var(--primary);
-  transition: all 0.3s;
+.button-type-2:hover {
+	background-color: var(--white);
+	color: var(--primary);
+	transition: all 0.3s;
 }
 .button-type-3 {
-  background-color: var(--white);
-  color: var(--secondary);
-  transition: all 0.3s;
+	background-color: var(--white);
+	color: var(--secondary);
+	transition: all 0.3s;
 }
 .button-type-3:hover {
-  background-color: var(--secondary);
-  color: var(--white);
-  transition: all 0.3s;
+	background-color: var(--secondary);
+	color: var(--white);
+	transition: all 0.3s;
 }
 .button-type-4 {
-  background-color: var(--secondary);
-  color: var(--white);
-  transition: all 0.3s;
+	background-color: var(--secondary);
+	color: var(--white);
+	transition: all 0.3s;
 }
-.button-type-4:hover{
-  background-color: var(--white);
-  color: var(--secondary);
-  transition: all 0.3s;
+.button-type-4:hover {
+	background-color: var(--white);
+	color: var(--secondary);
+	transition: all 0.3s;
+}
+.button-type-5 {
+	background-color: #ff0000;
+	color: var(--white);
+	transition: all 0.3s;
+}
+.button-type-5:hover {
+	background-color: var(--white);
+	color: #ff0000;
+	transition: all 0.3s;
+}
+.button-type-6 {
+	background-color: var(--white);
+	color: #ff0000;
+	transition: all 0.3s;
+	border: 1px solid #ff0000;
+}
+.button-type-6:hover {
+	background-color: #ff0000;
+	color: var(--white);
+	transition: all 0.3s;
 }
