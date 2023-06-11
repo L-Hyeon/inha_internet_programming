@@ -1,18 +1,18 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import Loading from "../../molecules/common/Loading.svelte";
   import Hooks from "../../../libs/Hooks";
   import type { Word } from "../../../libs/CusomTypes";
-  import Item from "../../molecules/item/Item.svelte";
-
-  export let data: { list: [] };
+  import Loading from "../../molecules/common/Loading.svelte";
+  import WordItem from "../../molecules/admin/WordItem.svelte";
+  import Button from "../../atoms/button/Button.svelte";
+  import { goto } from "$app/navigation";
 
   let listElement: Element;
   let loading: boolean = false;
   let list: Word[] = [];
   let page = 0;
 
-  const getWords = (page: number) => {
+  const getWords = () => {
     loading = true;
     Hooks.getWords(page).then((res) => {
       list = [...list, ...res.data];
@@ -21,7 +21,7 @@
   };
 
   onMount(() => {
-    list = data.list;
+    getWords();
     if (listElement) {
       listElement.addEventListener("scroll", () => {
         if (
@@ -29,7 +29,7 @@
           listElement.scrollHeight
         ) {
           page += 1;
-          getWords(page);
+          getWords();
         }
       });
     }
@@ -37,31 +37,36 @@
 </script>
 
 <section>
+  <div>
+    <Button
+      type={2}
+      width="50px"
+      height="30px"
+      onClick={() => {
+        goto("/admin/addWord");
+      }}>추가</Button
+    >
+  </div>
   <ul bind:this={listElement}>
-    <div class="wrapper">
-      {#each list as word}
-        <Item {word} />
-      {/each}
-      {#if loading}
-        <Loading />
-      {/if}
-    </div>
+    {#each list as word}
+      <WordItem {word} />
+    {/each}
+    {#if loading}
+      <Loading />
+    {/if}
   </ul>
 </section>
 
 <style>
+  div {
+    display: flex;
+    justify-content: end;
+    margin-bottom: 10px;
+  }
   ul {
-    height: calc(98vh - 70px);
+    height: calc(96vh - 150px);
     padding-right: 10px;
     overflow-y: scroll;
-  }
-  .wrapper {
-    width: calc(64vw + 20px);
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 2vw;
   }
   ul::-webkit-scrollbar {
     width: 10px;

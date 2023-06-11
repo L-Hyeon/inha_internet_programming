@@ -4,6 +4,10 @@
 	export let data: { list: [] };
 </script>
 
+<svelte:head>
+	<title>INP | 게시판</title>
+</svelte:head>
+
 <article>
 	<BoardList {data} />
 </article>
